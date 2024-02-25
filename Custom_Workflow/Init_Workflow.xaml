@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>927.2,996.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1092.2264150943395,1365.7358490566037</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CallWorkflow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -91,6 +91,7 @@
       <AssemblyReference>System.IO.Packaging</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>UiPath.AmazonWebServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -98,7 +99,7 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Init_Workflow" sap:VirtualizedContainerService.HintSize="559.2,932" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Init_Workflow" sap:VirtualizedContainerService.HintSize="553.3584905660377,1300.5283018867924" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="isRerun" />
       <Variable x:TypeArguments="s:DateTime" Name="datePeriod" />
@@ -110,7 +111,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign DisplayName="Assign path to Dictionary" sap:VirtualizedContainerService.HintSize="496.8,83.2" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <Assign DisplayName="Assign path to Dictionary" sap:VirtualizedContainerService.HintSize="491.77358490566036,63.39622641509433" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dicPath]</OutArgument>
       </Assign.To>
@@ -119,30 +120,30 @@
 {
 	{"strMasterPath", in_TransactionItem.SpecificContent("PathMasterFolder").ToString},
 	{"strProjectPath", Environment.CurrentDirectory},
-	{"strRawFolderPath", Path.Combine(in_TransactionItem.SpecificContent("PathMasterFolder").ToString, in_Config("EmailRawFolderName").ToString)}
+	{"strRawFolderPath", Path.Combine(in_TransactionItem.SpecificContent("PathMasterFolder").ToString, in_Config("RawFolderName").ToString)}
 }]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists - Raw File Folder" Exists="[isRawFolderPathExist]" sap:VirtualizedContainerService.HintSize="496.8,90.4" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[dicPath(&quot;strRawFolderPath&quot;)]" PathType="Folder" />
-    <If Condition="[Not isRawFolderPathExist]" DisplayName="If - Raw file folder doesnt exist, then create" sap:VirtualizedContainerService.HintSize="496.8,52.8" sap2010:WorkflowViewState.IdRef="If_2">
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists - Raw File Folder" Exists="[isRawFolderPathExist]" sap:VirtualizedContainerService.HintSize="491.77358490566036,88.75471698113206" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[dicPath(&quot;strRawFolderPath&quot;)]" PathType="Folder" />
+    <If Condition="[Not isRawFolderPathExist]" DisplayName="If - Raw file folder doesnt exist, then create" sap:VirtualizedContainerService.HintSize="491.77358490566036,458.2641509433962" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence sap:VirtualizedContainerService.HintSize="400.3018867924528,188.37735849056602" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[dicPath(&quot;strRawFolderPath&quot;)]" />
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="338.71698113207543,78.79245283018868" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[dicPath(&quot;strRawFolderPath&quot;)]" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="400,104.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence sap:VirtualizedContainerService.HintSize="400.3018867924528,100.52830188679245" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -151,7 +152,7 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:MultipleAssign DisplayName="Multiple Assign - datePeriod &amp; isRerun" sap:VirtualizedContainerService.HintSize="496.8,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+    <ui:MultipleAssign DisplayName="Multiple Assign - datePeriod &amp; isRerun" sap:VirtualizedContainerService.HintSize="491.77358490566036,131.32075471698113" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -173,8 +174,8 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_TransactionItem.SpecificContent(&quot;Key&quot;).ToString.ToLower]" sap:VirtualizedContainerService.HintSize="496.8,301.6" sap2010:WorkflowViewState.IdRef="Switch`1_5">
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="citibankvccreport" DisplayName="citibankvccreport.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="359.2,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_111" UnSafe="False" WorkflowFileName="BP_Workflow\citibankvccreport.xaml">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[in_TransactionItem.SpecificContent(&quot;Key&quot;).ToString.ToLower]" sap:VirtualizedContainerService.HintSize="491.77358490566036,289.811320754717" sap2010:WorkflowViewState.IdRef="Switch`1_5">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" x:Key="citibankvccreport" DisplayName="citibankvccreport.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334.18867924528297,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_111" UnSafe="False" WorkflowFileName="BP_Workflow\citibankvccreport.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_dicPath">[dicPath]</InArgument>
           <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[datePeriod]</InArgument>

@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>927.2,2396.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1092.2264150943395,2767.698113207547</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Add_Queue_Retry_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -89,9 +89,10 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.AmazonWebServices</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Add_Queue_Retry" sap:VirtualizedContainerService.HintSize="594.4,2332" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Add_Queue_Retry" sap:VirtualizedContainerService.HintSize="682.8679245283018,2702.490566037736" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strQueueReference" />
       <Variable x:TypeArguments="x:Int32" Name="intAutoRetryMax" />
@@ -109,8 +110,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="532,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} {1}&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, &quot;STEP : Add Queue Retry&quot;)]" />
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Get Queue Reference Name, Max Retry, Postpone" DisplayName="Multiple Assign - Queue reference, max retry, postpone" sap:VirtualizedContainerService.HintSize="532,257.6" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="621.2830188679245,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} {1}&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, &quot;STEP : Add Queue Retry&quot;)]" />
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Get Queue Reference Name, Max Retry, Postpone" DisplayName="Multiple Assign - Queue reference, max retry, postpone" sap:VirtualizedContainerService.HintSize="621.2830188679245,254.49056603773585" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -161,7 +162,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="replace any date format found in string, the string should look like this -&gt; &quot;foo {yyyMM}&quot; (date format should be in between { })" Code="string pattern = @&quot;\{(\d+),(\d+)?}&quot;;&#xA;int retriedToday = 1; // Second index&#xA;int retriedTodayMax = in_intAutoRetryMax;&#xA;int retriedDay = 1; // First index&#xA;int retriedDayMax = in_intAutoRetryMaxDay;&#xA;//string io_strQueueReference = &quot;{1,2}_airtickets-05-11-2023&quot;;&#xA;int todayRetried = 0;&#xA;int dayRetried = 0;&#xA;bool isCreate = true;&#xA;bool isPostponeNextDay = false;&#xA;&#xA;if (Regex.IsMatch(io_strQueueReference, pattern))&#xA;{&#xA;    // Use Regex.Replace with a MatchEvaluator function to increment&#xA;    io_strQueueReference = Regex.Replace(io_strQueueReference, pattern, match =&gt;&#xA;    {&#xA;        Console.WriteLine($&quot;match.Groups[1]: {match.Groups[1].Value}&quot;);&#xA;        Console.WriteLine($&quot;match.Groups[2]: {match.Groups[2].Value}&quot;);&#xA;        int dayIndex = int.Parse(match.Groups[1].Value);&#xA;        retriedDay = dayIndex; // Assigning the first captured group to the second index&#xA;        if (match.Groups[2].Success)&#xA;        {&#xA;            int todayIndex = int.Parse(match.Groups[2].Value);&#xA;            retriedToday = todayIndex;&#xA;            if (retriedToday &lt; retriedTodayMax)&#xA;            {&#xA;                retriedToday++; // Increment the second index if it's less than its maximum value&#xA;            }&#xA;            else&#xA;            {&#xA;                retriedToday = 1; // Reset the second index to 1 if it has reached its maximum value&#xA;                if (retriedDay &lt; retriedDayMax)&#xA;                {&#xA;                    retriedDay++; // Increment the first index if it's less than its maximum value&#xA;                    isPostponeNextDay = true; // Set isPostponeNextDay to true when the first index is incremented&#xA;                }&#xA;                else&#xA;                {&#xA;                    isCreate = false; // Set isCreate to false when the first index reaches its maximum value&#xA;                }&#xA;            }&#xA;            return &quot;{&quot; + retriedDay + &quot;,&quot; + retriedToday + &quot;}&quot;; // Replacing with {retriedDay, retried}&#xA;        }&#xA;        else&#xA;        {&#xA;            return &quot;{&quot; + retriedDay + &quot;}&quot;; // Replacing with {retriedDay}&#xA;        }&#xA;    });&#xA;}&#xA;else&#xA;{&#xA;    // If the pattern is not matched, add {1,1} in front of the string&#xA;    io_strQueueReference = &quot;{1,1}_&quot; + io_strQueueReference;&#xA;}&#xA;// Condition added to set isCreate to false when both retriedTodayMax and retriedDayMax are 0&#xA;if (retriedTodayMax == 0 &amp;&amp; retriedDayMax == 0)&#xA;{&#xA;    isCreate = false;&#xA;}&#xA;todayRetried = retriedToday;&#xA;dayRetried = retriedDay;&#xA;io_isCreate = isCreate;&#xA;io_isPostponeNextDay = isPostponeNextDay;&#xA;&#xA;Console.WriteLine($&quot;todayRetried: {todayRetried}&quot;);&#xA;Console.WriteLine($&quot;dayRetried: {dayRetried}&quot;);&#xA;Console.WriteLine($&quot;io_strQueueReference: {io_strQueueReference}&quot;);&#xA;Console.WriteLine($&quot;isCreate: {isCreate}&quot;);&#xA;Console.WriteLine($&quot;isPostponeNextDay: {isPostponeNextDay}&quot;);" DisplayName="Invoke code -  replace any date format in string" sap:VirtualizedContainerService.HintSize="532,224.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="replace any date format found in string, the string should look like this -&gt; &quot;foo {yyyMM}&quot; (date format should be in between { })" Code="string pattern = @&quot;\{(\d+),(\d+)?}&quot;;&#xA;int retriedToday = 1; // Second index&#xA;int retriedTodayMax = in_intAutoRetryMax;&#xA;int retriedDay = 1; // First index&#xA;int retriedDayMax = in_intAutoRetryMaxDay;&#xA;//string io_strQueueReference = &quot;{1,2}_airtickets-05-11-2023&quot;;&#xA;int todayRetried = 0;&#xA;int dayRetried = 0;&#xA;bool isCreate = true;&#xA;bool isPostponeNextDay = false;&#xA;&#xA;if (Regex.IsMatch(io_strQueueReference, pattern))&#xA;{&#xA;    // Use Regex.Replace with a MatchEvaluator function to increment&#xA;    io_strQueueReference = Regex.Replace(io_strQueueReference, pattern, match =&gt;&#xA;    {&#xA;        Console.WriteLine($&quot;match.Groups[1]: {match.Groups[1].Value}&quot;);&#xA;        Console.WriteLine($&quot;match.Groups[2]: {match.Groups[2].Value}&quot;);&#xA;        int dayIndex = int.Parse(match.Groups[1].Value);&#xA;        retriedDay = dayIndex; // Assigning the first captured group to the second index&#xA;        if (match.Groups[2].Success)&#xA;        {&#xA;            int todayIndex = int.Parse(match.Groups[2].Value);&#xA;            retriedToday = todayIndex;&#xA;            if (retriedToday &lt; retriedTodayMax)&#xA;            {&#xA;                retriedToday++; // Increment the second index if it's less than its maximum value&#xA;            }&#xA;            else&#xA;            {&#xA;                retriedToday = 1; // Reset the second index to 1 if it has reached its maximum value&#xA;                if (retriedDay &lt; retriedDayMax)&#xA;                {&#xA;                    retriedDay++; // Increment the first index if it's less than its maximum value&#xA;                    isPostponeNextDay = true; // Set isPostponeNextDay to true when the first index is incremented&#xA;                }&#xA;                else&#xA;                {&#xA;                    isCreate = false; // Set isCreate to false when the first index reaches its maximum value&#xA;                }&#xA;            }&#xA;            return &quot;{&quot; + retriedDay + &quot;,&quot; + retriedToday + &quot;}&quot;; // Replacing with {retriedDay, retried}&#xA;        }&#xA;        else&#xA;        {&#xA;            return &quot;{&quot; + retriedDay + &quot;}&quot;; // Replacing with {retriedDay}&#xA;        }&#xA;    });&#xA;}&#xA;else&#xA;{&#xA;    // If the pattern is not matched, add {1,1} in front of the string&#xA;    io_strQueueReference = &quot;{1,1}_&quot; + io_strQueueReference;&#xA;}&#xA;// Condition added to set isCreate to false when both retriedTodayMax and retriedDayMax are 0&#xA;if (retriedTodayMax == 0 &amp;&amp; retriedDayMax == 0)&#xA;{&#xA;    isCreate = false;&#xA;}&#xA;todayRetried = retriedToday;&#xA;dayRetried = retriedDay;&#xA;io_isCreate = isCreate;&#xA;io_isPostponeNextDay = isPostponeNextDay;&#xA;&#xA;Console.WriteLine($&quot;todayRetried: {todayRetried}&quot;);&#xA;Console.WriteLine($&quot;dayRetried: {dayRetried}&quot;);&#xA;Console.WriteLine($&quot;io_strQueueReference: {io_strQueueReference}&quot;);&#xA;Console.WriteLine($&quot;isCreate: {isCreate}&quot;);&#xA;Console.WriteLine($&quot;isPostponeNextDay: {isPostponeNextDay}&quot;);" DisplayName="Invoke code -  replace any date format in string" sap:VirtualizedContainerService.HintSize="621.2830188679245,217.35849056603772" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
       <ui:InvokeCode.Arguments>
         <InOutArgument x:TypeArguments="x:String" x:Key="io_strQueueReference">[strQueueReference]</InOutArgument>
         <InArgument x:TypeArguments="x:Int32" x:Key="in_intAutoRetryMax">[intAutoRetryMax]</InArgument>
@@ -177,7 +178,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InvokeCode>
-    <If Condition="[isCreate]" sap:VirtualizedContainerService.HintSize="532,1392" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[isCreate]" sap:VirtualizedContainerService.HintSize="621.2830188679245,1782.3396226415093" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -185,7 +186,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="498.4,1208.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap:VirtualizedContainerService.HintSize="540.6792452830189,1512.4528301886792" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <Sequence.Variables>
             <Variable x:TypeArguments="scg:List(s:DateTime)" Name="listStartEndRange" />
           </Sequence.Variables>
@@ -194,15 +195,15 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If Condition="[isPostponeNextDay]" sap:VirtualizedContainerService.HintSize="455.2,1119.2" sap2010:WorkflowViewState.IdRef="If_2">
+          <If Condition="[isPostponeNextDay]" sap:VirtualizedContainerService.HintSize="479.0943396226415,1402.8679245283017" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="421.6,468" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence sap:VirtualizedContainerService.HintSize="400.3018867924528,342.33962264150944" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom_Workflow\Get_EmailDate_Asset.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338.71698113207543,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Custom_Workflow\Get_BucketDate_Asset.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_strAssetName">[in_Config("GlobalVarAsset").ToString]</InArgument>
                     <OutArgument x:TypeArguments="s:DateTime" x:Key="out_dateStartPeriod">[dateStartPeriod]</OutArgument>
@@ -210,7 +211,7 @@
                     <OutArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="out_listStartEndRange">[listStartEndRange]</OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="" DeferDate="[Now.AddHours(intAutoRetrySchedule)]" DisplayName="Add Queue Item For Current BP" sap:VirtualizedContainerService.HintSize="378.4,224.8" sap2010:WorkflowViewState.IdRef="AddQueueItem_5" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[strQueueReference]">
+                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" sap2010:Annotation.AnnotationText="" DeferDate="[Now.AddHours(intAutoRetrySchedule)]" DisplayName="Add Queue Item For Current BP" sap:VirtualizedContainerService.HintSize="338.71698113207543,81.50943396226414" sap2010:WorkflowViewState.IdRef="AddQueueItem_5" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[strQueueReference]">
                   <ui:AddQueueItem.ItemInformation>
                     <InArgument x:TypeArguments="x:String" x:Key="BPID">[in_TransactionItem.SpecificContent("BPID").ToString]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="Key">[in_TransactionItem.SpecificContent("Key").ToString]</InArgument>
@@ -225,25 +226,34 @@
                     <InArgument x:TypeArguments="x:String" x:Key="PID">[in_TransactionItem.SpecificContent("PID").ToString]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="Email User CC">[in_TransactionItem.SpecificContent("Email User CC").ToString]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="Email Technical CC">[in_TransactionItem.SpecificContent("Email Technical CC").ToString]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="Credential">[in_TransactionItem.SpecificContent("Credential").ToString]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="Schedule">[in_TransactionItem.SpecificContent("Schedule").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IAM Role">[in_TransactionItem.SpecificContent("IAM Role").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Region">[in_TransactionItem.SpecificContent("Region").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Bucket Name">[in_TransactionItem.SpecificContent("Bucket Name").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Remote Path">[in_TransactionItem.SpecificContent("Remote Path").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Product Type">[in_TransactionItem.SpecificContent("Product Type").ToString]</InArgument>
                   </ui:AddQueueItem.ItemInformation>
+                  <ui:AddQueueItem.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:AddQueueItem.TimeoutMS>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:AddQueueItem>
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="421.6,468" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence sap:VirtualizedContainerService.HintSize="400.3018867924528,891.1698113207547" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="378.4,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom_Workflow\Get_EmailDate_Asset.xaml">
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get_EmailDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338.71698113207543,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Custom_Workflow\Get_BucketDate_Asset.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
                     <InArgument x:TypeArguments="x:String" x:Key="in_strAssetName">[in_Config("GlobalVarAsset").ToString]</InArgument>
                     <OutArgument x:TypeArguments="s:DateTime" x:Key="out_dateStartPeriod">[dateStartPeriod]</OutArgument>
@@ -251,7 +261,7 @@
                     <OutArgument x:TypeArguments="scg:List(s:DateTime)" x:Key="out_listStartEndRange">[listStartEndRange]</OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
-                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="" DeferDate="[Now.AddHours(intAutoRetryPostpone)]" DisplayName="Add Queue Item For Current BP" sap:VirtualizedContainerService.HintSize="378.4,224.8" sap2010:WorkflowViewState.IdRef="AddQueueItem_3" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[strQueueReference]">
+                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" sap2010:Annotation.AnnotationText="" DeferDate="[Now.AddHours(intAutoRetryPostpone)]" DisplayName="Add Queue Item For Current BP" sap:VirtualizedContainerService.HintSize="338.71698113207543,630.3396226415094" sap2010:WorkflowViewState.IdRef="AddQueueItem_6" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[strQueueReference]">
                   <ui:AddQueueItem.ItemInformation>
                     <InArgument x:TypeArguments="x:String" x:Key="BPID">[in_TransactionItem.SpecificContent("BPID").ToString]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="Key">[in_TransactionItem.SpecificContent("Key").ToString]</InArgument>
@@ -266,12 +276,21 @@
                     <InArgument x:TypeArguments="x:String" x:Key="PID">[in_TransactionItem.SpecificContent("PID").ToString]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="Email User CC">[in_TransactionItem.SpecificContent("Email User CC").ToString]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="Email Technical CC">[in_TransactionItem.SpecificContent("Email Technical CC").ToString]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="Credential">[in_TransactionItem.SpecificContent("Credential").ToString]</InArgument>
                     <InArgument x:TypeArguments="x:String" x:Key="Schedule">[in_TransactionItem.SpecificContent("Schedule").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="IAM Role">[in_TransactionItem.SpecificContent("IAM Role").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Region">[in_TransactionItem.SpecificContent("Region").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Bucket Name">[in_TransactionItem.SpecificContent("Bucket Name").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Remote Path">[in_TransactionItem.SpecificContent("Remote Path").ToString]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Product Type">[in_TransactionItem.SpecificContent("Product Type").ToString]</InArgument>
                   </ui:AddQueueItem.ItemInformation>
+                  <ui:AddQueueItem.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:AddQueueItem.TimeoutMS>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:AddQueueItem>
@@ -281,9 +300,15 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_4" />
+        <Sequence sap:VirtualizedContainerService.HintSize="400.3018867924528,100.52830188679245" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="532,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&quot;Retried: {0}, Max: {1}&quot;, intRetried, intAutoRetryMax)]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="621.2830188679245,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[String.Format(&quot;Retried: {0}, Max: {1}&quot;, intRetried, intAutoRetryMax)]" />
   </Sequence>
 </Activity>
