@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1092.2264150943395,1907.320754716981</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1476.2264150943395,2342.9433962264147</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>amadeustjqkultv28aa_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="47">
@@ -150,7 +150,7 @@
       <AssemblyReference>UiPath.AmazonWebServices</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="VCC Citibank run daily" DisplayName="amadeustjqkultv28aa" sap:VirtualizedContainerService.HintSize="638.4905660377358,1842.1132075471696" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="VCC Citibank run daily" DisplayName="amadeustjqkultv28aa" sap:VirtualizedContainerService.HintSize="581.4339622641509,2198.0377358490564" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="isFileExist" />
@@ -165,8 +165,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="576.9056603773585,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
-    <If Condition="[Not in_isRerun]" DisplayName="If normal run, adddays(-1)" sap:VirtualizedContainerService.HintSize="576.9056603773585,50.71698113207547" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="519.8490566037735,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[String.Format(&quot;{0} [{1}]&quot;, in_TransactionItem.SpecificContent(&quot;PID&quot;).ToString, Now)]" />
+    <If Condition="[Not in_isRerun]" DisplayName="If normal run, adddays(-1)" sap:VirtualizedContainerService.HintSize="519.8490566037735,50.71698113207547" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -208,10 +208,10 @@
         </Sequence>
       </If.Else>
     </If>
-    <TryCatch DisplayName="Try Catch Init Process" sap:VirtualizedContainerService.HintSize="576.9056603773585,50.71698113207547" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch Init Process" sap:VirtualizedContainerService.HintSize="519.8490566037735,443.77358490566036" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -280,14 +280,12 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Folder_Checker.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="576.9056603773585,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="Custom_Workflow\Folder_Checker.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Folder_Checker.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="519.8490566037735,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="Custom_Workflow\Folder_Checker.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_path">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRawFolderPath" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_path">[strRawFolderPath]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Set_BucketDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="576.9056603773585,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Custom_Workflow\Set_BucketDate_Asset.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Set_BucketDate_Asset.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="519.8490566037735,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Custom_Workflow\Set_BucketDate_Asset.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateStartPeriod">[dateStartPeriod]</InArgument>
         <InArgument x:TypeArguments="s:DateTime" x:Key="in_dateEndPeriod">[dateEndPeriod]</InArgument>
@@ -295,8 +293,8 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_assetName">[in_Config("GlobalVarAsset").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[isFileExist]" sap:VirtualizedContainerService.HintSize="576.9056603773585,88.75471698113206" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[strFilePath]" PathType="File" />
-    <If sap2010:Annotation.AnnotationText="If file doesn't exists in local folder or rerun in config sheet is set to true" Condition="[Not(Not isFileExist Or in_isRerun)]" DisplayName="If - File does not exist or rerun" sap:VirtualizedContainerService.HintSize="576.9056603773585,959.9999999999999" sap2010:WorkflowViewState.IdRef="If_3">
+    <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists" Exists="[isFileExist]" sap:VirtualizedContainerService.HintSize="519.8490566037735,88.75471698113206" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[strFilePath]" PathType="File" />
+    <If sap2010:Annotation.AnnotationText="If file doesn't exists in local folder or rerun in config sheet is set to true" Condition="[Not(Not isFileExist Or in_isRerun)]" DisplayName="If - File does not exist or rerun" sap:VirtualizedContainerService.HintSize="519.8490566037735,922.8679245283018" sap2010:WorkflowViewState.IdRef="If_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -315,7 +313,7 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="498.1132075471698,560.6037735849056" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence sap:VirtualizedContainerService.HintSize="441.05660377358487,523.4716981132075" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="strRawFilePath" />
           </Sequence.Variables>
@@ -324,58 +322,47 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Bucket_Download.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="436.5283018867924,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="Custom_Workflow\Bucket_Download.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\Bucket_Download.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379.47169811320754,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="Custom_Workflow\Bucket_Download.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
+              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+              <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">[in_datePeriod]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_rawFilePath">[strRawFilePath]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_rawFolderpath">[strRawFolderPath]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Custom_Workflow\vcccitibank\Convert_XmlToExcel.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379.47169811320754,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Custom_Workflow\vcccitibank\Convert_XmlToExcel.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="in_pathRawFile">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRawFilePath" />
               </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_pathResultFile">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFilePath" />
+              </InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+          </ui:InvokeWorkflowFile>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add_Queue_Item.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="379.47169811320754,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="Custom_Workflow\Add_Queue_Item.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
                 <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+              </InArgument>
+              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
+                <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
               </InArgument>
               <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">
                 <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="in_datePeriod" />
               </InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="out_rawFilePath">
-                <VisualBasicReference x:TypeArguments="x:String" ExpressionText="strRawFilePath" />
-              </OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="in_rawFolderpath">
-                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRawFolderPath" />
+              <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFilePath" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strRawFilePath">
+                <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRawFilePath" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_strDateRange">
+                <Literal x:TypeArguments="x:String" Value="" />
               </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436.5283018867924,299.77358490566036" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="400.3018867924528,220.9811320754717" sap2010:WorkflowViewState.IdRef="Sequence_41">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Add_Queue_Item.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="338.71698113207543,111.39622641509433" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="Custom_Workflow\Add_Queue_Item.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                      <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">
-                      <VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="in_TransactionItem" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="s:DateTime" x:Key="in_datePeriod">
-                      <VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="in_datePeriod" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strFilePath">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strFilePath" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strRawFilePath">
-                      <VisualBasicValue x:TypeArguments="x:String" ExpressionText="strRawFilePath" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_strDateRange">
-                      <Literal x:TypeArguments="x:String" Value="" />
-                    </InArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-              </Sequence>
-            </ui:CommentOut.Body>
-          </ui:CommentOut>
         </Sequence>
       </If.Else>
     </If>

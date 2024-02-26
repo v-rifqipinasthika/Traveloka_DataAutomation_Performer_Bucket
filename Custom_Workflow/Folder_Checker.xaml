@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1092.2264150943395,1049.6603773584905</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1476.2264150943395,921.9622641509434</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Folder_Checker_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -78,7 +78,7 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Create folder if folder not created" DisplayName="Folder_Checker" sap:VirtualizedContainerService.HintSize="540.6792452830189,984.4528301886792" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Create folder if folder not created" DisplayName="Folder_Checker" sap:VirtualizedContainerService.HintSize="540.6792452830189,856.754716981132" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="isFolderExist" />
     </Sequence.Variables>
@@ -88,7 +88,6 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Throw Exception="[New Exception(&quot;Test&quot;)]" sap:VirtualizedContainerService.HintSize="479.0943396226415,87.84905660377358" sap2010:WorkflowViewState.IdRef="Throw_1" />
     <ui:LogMessage DisplayName="Log Message Folder Checker" sap:VirtualizedContainerService.HintSize="479.0943396226415,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;STEP : Folder Checker&quot;]" />
     <ui:PathExists Resource="{x:Null}" DisplayName="Path Exists - Raw File Folder" Exists="[isFolderExist]" sap:VirtualizedContainerService.HintSize="479.0943396226415,88.75471698113206" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[in_path]" PathType="Folder" />
     <If Condition="[Not isFolderExist]" DisplayName="If - Raw file folder doesnt exist, then create" sap:VirtualizedContainerService.HintSize="479.0943396226415,458.2641509433962" sap2010:WorkflowViewState.IdRef="If_1">
