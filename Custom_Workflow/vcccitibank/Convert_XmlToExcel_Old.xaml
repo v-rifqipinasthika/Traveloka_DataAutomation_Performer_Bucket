@@ -1,0 +1,156 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Convert_XmlToExcel" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:sxl="clr-namespace:System.Xml.Linq;assembly=System.Private.Xml.Linq" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_pathRawFile" Type="InArgument(x:String)" />
+    <x:Property Name="in_pathResultFile" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Convert_XmlToExcel.in_pathRawFile>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Convert_XmlToExcel.in_pathRawFile>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1476.2264150943395,1151.0943396226414</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Convert_XmlToExcel_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Private.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Convert_XmlToExcel" sap:VirtualizedContainerService.HintSize="400.3018867924528,1085.8867924528302" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="xml" />
+      <Variable x:TypeArguments="sxl:XDocument" Name="desXml" />
+      <Variable x:TypeArguments="x:Int32" Name="index" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dictItem" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dtRaw" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Convert_XmlToExcel" sap:VirtualizedContainerService.HintSize="338.71698113207543,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;STEP : Convert_XmlToExcel&quot;]" />
+    <ui:ReadTextFile File="{x:Null}" Content="[xml]" DisplayName="Read Text File XML File" FileName="[in_pathRawFile]" sap:VirtualizedContainerService.HintSize="338.71698113207543,78.79245283018868" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <ui:DeserializeXml DisplayName="Deserialize XML" sap:VirtualizedContainerService.HintSize="338.71698113207543,59.77358490566037" sap2010:WorkflowViewState.IdRef="DeserializeXml_1" XMLDocument="[desXML]" XMLString="[xml]" />
+    <Assign sap:VirtualizedContainerService.HintSize="338.71698113207543,63.39622641509433" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[dictItem]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" xml:space="preserve">[New Dictionary(Of String, String) From
+{
+	{"CorporateEntity", "CorporationNumber"},
+	{"OrganizationPointEntity", "OrganizationPointNumber"}
+}]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="// Create a new DataTable&#xA;DataTable dataTable = new DataTable();&#xA;&#xA;// Add columns to the DataTable&#xA;dataTable.Columns.Add(&quot;Hierarchy Level 1 Number&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Hierarchy Name (Level 1)&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Account Number&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Virtual Card Number&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Virtual Card Number (Short)&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Transaction Date&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Transaction Time&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Transaction Post Date&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Authorization ID&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Merchant Reference Number&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Transaction ID&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;MCC&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Merchant Description&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Original Currency&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Original Amount&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Billing Currency&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Billing Amount&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Transaction Type&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Transaction Code&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Label 01&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Data 01&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Label 02&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Data 02&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Label 03&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Data 03&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Label 04&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Project&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;Label 05&quot;, typeof(string));&#xA;dataTable.Columns.Add(&quot;PIC&quot;, typeof(string));&#xA;&#xA;//Assigning out_dtRaw with formatted structure&#xA;dtRaw = dataTable.Clone();&#xA;dtRaw = dataTable;" DisplayName="Invoke Code Table Structure" sap:VirtualizedContainerService.HintSize="338.71698113207543,164.83018867924528" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+      <ui:InvokeCode.Arguments>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dtRaw">[dtRaw]</InOutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="//Loop xml and extract values&#xA;String corporationNumber = &quot;&quot;;&#xA;String nameLine = &quot;&quot;;&#xA;String billingCurrencyCode = &quot;&quot;;&#xA;String alternateAccountNumber = &quot;&quot;;&#xA;String processorTransactionId = &quot;&quot;;&#xA;String transactionDate = &quot;&quot;;&#xA;String postingDate = &quot;&quot;;&#xA;String acquirerReferenceData = &quot;&quot;;&#xA;String cardAcceptorBusinessCode = &quot;&quot;;&#xA;String cardAcceptorName = &quot;&quot;;&#xA;String amountInOriginalCurrency = &quot;&quot;;&#xA;String amountInPostedCurrency = &quot;&quot;;&#xA;String issuerTransactionCode = &quot;&quot;;&#xA;&#xA;foreach (XElement currentItem in desXml.Elements(&quot;CDFTransmissionFile&quot;).Elements(&quot;IssuerEntity&quot;).Descendants(&quot;CorporateEntity&quot;))&#xA;{&#xA;&#x9;//Reset value to assign empty value&#xA;&#x9;corporationNumber = &quot;&quot;;&#xA;&#x9;nameLine = &quot;&quot;;&#xA;&#x9;billingCurrencyCode = &quot;&quot;;&#xA;&#x9;alternateAccountNumber = &quot;&quot;;&#xA;&#x9;processorTransactionId = &quot;&quot;;&#xA;&#x9;transactionDate = &quot;&quot;;&#xA;&#x9;postingDate = &quot;&quot;;&#xA;&#x9;acquirerReferenceData = &quot;&quot;;&#xA;&#x9;cardAcceptorBusinessCode = &quot;&quot;;&#xA;&#x9;cardAcceptorName = &quot;&quot;;&#xA;&#x9;amountInOriginalCurrency = &quot;&quot;;&#xA;&#x9;amountInPostedCurrency = &quot;&quot;;&#xA;&#x9;issuerTransactionCode = &quot;&quot;;&#xA;&#x9;&#xA;&#x9;&#xA;&#x9;//Retieve data from xml&#xA;&#x9;corporationNumber = currentItem.Attribute(&quot;CorporationNumber&quot;).Value;&#xA;&#x9;nameLine = currentItem.Element(&quot;CorporateInformation_4000&quot;).Element(&quot;NameLine1&quot;).Value;&#xA;&#x9;billingCurrencyCode = currentItem.Element(&quot;CorporateInformation_4000&quot;).Element(&quot;BillingCurrencyCode&quot;).Value;&#xA;&#x9;alternateAccountNumber = currentItem.Element(&quot;AccountEntity&quot;).Element(&quot;AccountInformation_4300&quot;).Element(&quot;AlternateAccount&quot;).Element(&quot;AlternateAccountNumber&quot;).Value;&#xA;&#x9;&#xA;&#x9;//Use try catch for possible not found data&#xA;&#x9;try&#xA;&#x9;{&#xA;&#x9;&#x9;processorTransactionId = currentItem.Element(&quot;AccountEntity&quot;).Element(&quot;FinancialTransactionEntity&quot;).Attribute(&quot;ProcessorTransactionId&quot;).Value;&#xA;&#x9;}&#xA;&#x9;catch(Exception ex)&#xA;&#x9;{&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;//Use try catch for possible not found data&#xA;&#x9;try&#xA;&#x9;{&#xA;&#x9;&#x9;transactionDate = currentItem.Element(&quot;AccountEntity&quot;).Element(&quot;FinancialAdjustmentRecord_5900&quot;).Element(&quot;TransactionDate&quot;).Value;&#xA;&#x9;}&#xA;&#x9;catch(Exception ex)&#xA;&#x9;{&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#x9;try&#xA;&#x9;{&#xA;&#x9;&#x9;postingDate = currentItem.Element(&quot;AccountEntity&quot;).Element(&quot;FinancialAdjustmentRecord_5900&quot;).Element(&quot;PostingDate&quot;).Value;&#xA;&#x9;}&#xA;&#x9;catch(Exception ex)&#xA;&#x9;{&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#x9;try&#xA;&#x9;{&#xA;&#x9;&#x9;acquirerReferenceData = currentItem.Element(&quot;AccountEntity&quot;).Element(&quot;FinancialTransactionEntity&quot;).Element(&quot;FinancialTransaction_5000&quot;).Element(&quot;AcquirerReferenceData&quot;).Value;&#xA;&#x9;}&#xA;&#x9;catch(Exception ex)&#xA;&#x9;{&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#x9;try&#xA;&#x9;{&#xA;&#x9;&#x9;cardAcceptorBusinessCode = currentItem.Element(&quot;AccountEntity&quot;).Element(&quot;FinancialTransactionEntity&quot;).Element(&quot;CardAcceptor_5001&quot;).Element(&quot;CardAcceptorBusinessCode&quot;).Value;&#xA;&#x9;}&#xA;&#x9;catch(Exception ex)&#xA;&#x9;{&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#x9;try&#xA;&#x9;{&#xA;&#x9;&#x9;cardAcceptorName = currentItem.Element(&quot;AccountEntity&quot;).Element(&quot;FinancialTransactionEntity&quot;).Element(&quot;CardAcceptor_5001&quot;).Element(&quot;CardAcceptorName&quot;).Value;&#xA;&#x9;}&#xA;&#x9;catch(Exception ex)&#xA;&#x9;{&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#x9;try&#xA;&#x9;{&#xA;&#x9;&#x9;amountInOriginalCurrency = currentItem.Element(&quot;AccountEntity&quot;).Element(&quot;FinancialTransactionEntity&quot;).Element(&quot;FinancialTransaction_5000&quot;).Element(&quot;AmountInOriginalCurrency&quot;).Value;&#xA;&#x9;}&#xA;&#x9;catch(Exception ex)&#xA;&#x9;{&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#x9;try&#xA;&#x9;{&#xA;&#x9;&#x9;amountInPostedCurrency = currentItem.Element(&quot;AccountEntity&quot;).Element(&quot;FinancialTransactionEntity&quot;).Element(&quot;FinancialTransaction_5000&quot;).Element(&quot;AmountInPostedCurrency&quot;).Value;&#xA;&#x9;}&#xA;&#x9;catch(Exception ex)&#xA;&#x9;{&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;&#x9;&#x9;try&#xA;&#x9;{&#xA;&#x9;&#x9;issuerTransactionCode = currentItem.Element(&quot;AccountEntity&quot;).Element(&quot;FinancialTransactionEntity&quot;).Element(&quot;FinancialTransaction_5000&quot;).Element(&quot;IssuerTransactionCode&quot;).Value;&#xA;&#x9;}&#xA;&#x9;catch(Exception ex)&#xA;&#x9;{&#xA;&#x9;&#x9;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;//Add to datatable&#xA;&#x9;DataRow row = dtRaw.NewRow();&#xA;&#x9;row[&quot;Hierarchy Level 1 Number&quot;] = corporationNumber;&#xA;&#x9;row[&quot;Hierarchy Name (Level 1)&quot;] = nameLine;&#xA;&#x9;row[&quot;Account Number&quot;] = alternateAccountNumber;&#xA;&#x9;row[&quot;Virtual Card Number&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Virtual Card Number (Short)&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Transaction Date&quot;] = transactionDate;&#xA;&#x9;row[&quot;Transaction Time&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Transaction Post Date&quot;] = postingDate;&#xA;&#x9;row[&quot;Authorization ID&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Merchant Reference Number&quot;] = processorTransactionId;&#xA;&#x9;row[&quot;Transaction ID&quot;] = acquirerReferenceData;&#xA;&#x9;row[&quot;MCC&quot;] = cardAcceptorBusinessCode;&#xA;&#x9;row[&quot;Merchant Description&quot;] = cardAcceptorName;&#xA;&#x9;row[&quot;Original Currency&quot;] = amountInOriginalCurrency;&#xA;&#x9;row[&quot;Original Amount&quot;] = amountInPostedCurrency;&#xA;&#x9;row[&quot;Billing Currency&quot;] = billingCurrencyCode;&#xA;&#x9;row[&quot;Billing Amount&quot;] = amountInPostedCurrency;&#xA;&#x9;row[&quot;Transaction Type&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Transaction Code&quot;] = issuerTransactionCode;&#xA;&#x9;row[&quot;Label 01&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Data 01&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Label 02&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Data 02&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Label 03&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Data 03&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Label 04&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Project&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;Label 05&quot;] = &quot;&quot;;&#xA;&#x9;row[&quot;PIC&quot;] = &quot;&quot;;&#xA;&#x9;&#xA;&#x9;// Add the row to the DataTable&#xA;&#x9;dtRaw.Rows.Add(row);&#xA;}" DisplayName="Invoke Code Get XML Value" sap:VirtualizedContainerService.HintSize="338.71698113207543,164.83018867924528" sap2010:WorkflowViewState.IdRef="InvokeCode_3" Language="CSharp">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="dictItem">[dictItem]</InArgument>
+        <InArgument x:TypeArguments="sxl:XDocument" x:Key="desXml">[desXML]</InArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dtRaw">[dtRaw]</InOutArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dtRaw]" DisplayName="Write Range Workbook | Result file" sap:VirtualizedContainerService.HintSize="338.71698113207543,115.92452830188678" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" WorkbookPath="[in_pathResultFile]" />
+  </Sequence>
+</Activity>
