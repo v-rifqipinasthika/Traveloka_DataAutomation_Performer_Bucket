@@ -1,6 +1,5 @@
 {
   "name": "Traveloka_DataAutomation_Performer_Bucket",
-  "projectId": "58bd0db8-4dbd-4673-9a31-daa7f0a87b04",
   "description": "Traveloka_DataAutomation_Performer_Bucket",
   "main": "Main.xaml",
   "dependencies": {
@@ -20,7 +19,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "23.10.0.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -28,7 +27,6 @@
     "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
-    "workflowSerialization": "DataContract",
     "excludedLoggedData": [
       "Private:*",
       "*password*"
@@ -93,8 +91,7 @@
         "fileName": "Tests\\WorkflowTestCaseTemplate.xaml"
       }
     ],
-    "modernBehavior": false,
-    "saveToCloud": false
+    "modernBehavior": false
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
