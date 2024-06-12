@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Remove_UnusedRow" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="927.2,1596.8" sap2010:WorkflowViewState.IdRef="Remove_UnusedRow_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uasa="clr-namespace:UiPath.Activities.System.Arrays;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Remove_UnusedRow" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1092.2264150943395,1415.5471698113206" sap2010:WorkflowViewState.IdRef="Remove_UnusedRow_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:uasa="clr-namespace:UiPath.Activities.System.Arrays;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -97,23 +97,19 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Remove_UnusedRow" sap:VirtualizedContainerService.HintSize="570.4,1532" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Remove_UnusedRow" sap:VirtualizedContainerService.HintSize="569.6603773584906,1350.3396226415093" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="txtData" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="listRawData" />
-      <Variable x:TypeArguments="scg:List(x:String)" Name="listFilteredData">
-        <Variable.Default>
-          <VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="New List(Of String)" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(Of String)]" Name="listFilteredData" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadTextFile File="{x:Null}" Content="[txtData]" DisplayName="Read Text File" FileName="C:\Users\Rifqi Pinasthika\Downloads\Traveloka_PC0044_08Feb24-ori.csv" sap:VirtualizedContainerService.HintSize="508,80.8" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <Assign sap:VirtualizedContainerService.HintSize="508,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:ReadTextFile File="{x:Null}" Content="[txtData]" DisplayName="Read Text File" FileName="C:\Users\Rifqi Pinasthika\Downloads\Traveloka_PC0044_08Feb24-ori.csv" sap:VirtualizedContainerService.HintSize="508.0754716981132,78.79245283018868" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <Assign sap:VirtualizedContainerService.HintSize="508.0754716981132,59.77358490566037" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:List(x:String)">[listRawData]</OutArgument>
       </Assign.To>
@@ -121,13 +117,13 @@
         <InArgument x:TypeArguments="scg:List(x:String)">[txtData.Split(Environment.NewLine.ToArray).ToList]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="508,858.4" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[listRawData]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="508.0754716981132,852.2264150943396" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[listRawData]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="472.8,732.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="471.84905660377353,729.9622641509434" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -159,13 +155,6 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="result.csv" sap:VirtualizedContainerService.HintSize="508,134.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[String.Join(Environment.NewLine, listFilteredData)]" />
-    <Sequence sap:VirtualizedContainerService.HintSize="508,104.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </Sequence>
+    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="result.csv" sap:VirtualizedContainerService.HintSize="508.0754716981132,130.41509433962264" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[String.Join(Environment.NewLine, listFilteredData)]" />
   </Sequence>
 </Activity>

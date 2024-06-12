@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1476.2264150943395,1151.0943396226414</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1092.2264150943395,1151.0943396226414</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Convert_XmlToExcel_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -115,7 +115,6 @@
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="xml" />
       <Variable x:TypeArguments="sxl:XDocument" Name="desXml" />
-      <Variable x:TypeArguments="x:Int32" Name="index" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="dictItem" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtRaw" />
     </Sequence.Variables>

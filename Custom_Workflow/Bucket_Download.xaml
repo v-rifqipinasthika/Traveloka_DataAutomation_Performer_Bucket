@@ -16,7 +16,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1043.2,3272</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1092.2264150943395,3244.075471698113</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Bucket_Download_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -121,9 +121,8 @@
       <AssemblyReference>System.Collections</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Bucket_Download" sap:VirtualizedContainerService.HintSize="820,3207.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Bucket_Download" sap:VirtualizedContainerService.HintSize="819.622641509434,3178.8679245283015" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="objectKeyName" />
       <Variable x:TypeArguments="x:String" Name="finalRemotePath" />
       <Variable x:TypeArguments="uam:AWSS3Bucket" Name="bucketName" />
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="isFileExist" />
@@ -133,8 +132,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Bucket_Download" sap:VirtualizedContainerService.HintSize="757.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;STEP : Bucket_Download&quot;]" />
-    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="to replace format on remote path such as {yyyyMM}/{yyyy}&#xA;*need System.Text.RegularExpressions namespace " Code="string pattern = &quot;{(.*?)}&quot;;&#xA;Regex regex = new Regex(pattern);&#xA;string outputString = regex.Replace(remotePath, match =&gt;&#xA;{&#xA;    string format = match.Groups[1].Value;&#xA;    return dateTime.ToString(format);&#xA;});&#xA;finalRemotePath = outputString;" DisplayName="Invoke Code Defin File Name" sap:VirtualizedContainerService.HintSize="757.6,224.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
+    <ui:LogMessage DisplayName="Log Message Bucket_Download" sap:VirtualizedContainerService.HintSize="758.0377358490565,89.66037735849056" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;STEP : Bucket_Download&quot;]" />
+    <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="to replace format on remote path such as {yyyyMM}/{yyyy}&#xA;*need System.Text.RegularExpressions namespace " Code="string pattern = &quot;{(.*?)}&quot;;&#xA;Regex regex = new Regex(pattern);&#xA;string outputString = regex.Replace(remotePath, match =&gt;&#xA;{&#xA;    string format = match.Groups[1].Value;&#xA;    return dateTime.ToString(format);&#xA;});&#xA;finalRemotePath = outputString;" DisplayName="Invoke Code Defin File Name" sap:VirtualizedContainerService.HintSize="758.0377358490565,203.77358490566036" sap2010:WorkflowViewState.IdRef="InvokeCode_1" Language="CSharp">
       <ui:InvokeCode.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="remotePath">[in_TransactionItem.SpecificContent("Remote Path").ToString]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="finalRemotePath">[finalRemotePath]</OutArgument>
